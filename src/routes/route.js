@@ -5,7 +5,7 @@ const underscore = require('underscore')
 const router = express.Router();
 
 router.get('/test-me', function (req, res) {
-    myHelper.printDate()
+    myHelper.printDate() get("arr")
     myHelper.getCurrentMonth()
     myHelper.getCohortData()
     let firstElement = underscore.first(['Sabiha','Akash','Pritesh'])
@@ -33,6 +33,31 @@ router.get("/shoes", function(req, res){
     let brand = queryParams.brand
     res.send("dummy response")
 })
+router.get("/mall",function(req,res){
+   // let queryParams=req.query
+   /// let brand=queryParams.brand
+    res.send("ah k")
+});
+
+router.get("/x3",function(req,res){
+//res.send([23,56,64,89])
+res.send("thise is array")
+
+
+});
+
+router.get("/dm",function(req,res){
+    res.send({a:45,b:45})
+
+});
+
+
+
+
+
+
+
+
 
 // uses query params
 router.get('/candidates', function(req, res){
@@ -71,6 +96,58 @@ router.get("/films", function(req, res){
        //send all the films
       res.send(films) 
 })
+
+
+router.get("/x5",function(req,res){
+res.send("thise is post ")
+});
+
+
+router.get("/x8",function(req,res){
+    let marks=req.query.marks 
+    let result=marks>40? "pass" :"fail"
+    
+    res.send({data:result,})
+    
+});
+//filter out all the numbers that are greater than input(input is received from query params)
+router.post("/ara",function(req,res){
+
+
+let myarra=[23,56,67,259,3245,432,500]
+let input=req.query.input
+let finalarray=myarra.filter(ele=>ele>input)
+
+
+res.send({data:finalarray,status:true})
+});
+
+
+
+
+router.get("/ara1",function(req,res){
+    let d=[23,56,99,54,89,65]
+    
+    //let c=req.query.c
+    let ah=d.map(x=> x*2)
+    res.send({data:ah,status:true})
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.get("/films/:filmId", function(req, res){
     const films = [ {
